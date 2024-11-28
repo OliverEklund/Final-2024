@@ -14,8 +14,8 @@ print("/")
 
 round_status = True
 while round_status == True:
-    Day + 1
-    
+    Day = Day + 1
+    1q
     print(f" It is now day {Day}. You have {Current_Money} dollars")
     print(f"Your company, {Company_Name} is making {Company_pay} dollars per day.")
     print("/")
@@ -26,18 +26,18 @@ while round_status == True:
         print("[1] Hire a worker / [2] Buy a facility / [3] Manage Finances / [4] Do Nothing")
         action = input("")
 
-        if action == 1 or 2 or 3 or 4:
+        if action == "1" or "2" or "3" or "4":
             break
         else:
             print("i cant understand that")
     
-    if action == 1:
+    if action == "1":
         print("you chose 1")
-    if action == 2:
+    if action == "2":
         print("you chose 2")
-    if action == 3:
+    if action == "3":
         print("you chose 3")
-    if action == 4:
+    if action == "4":
         print("you chose 4")
 
-    input("")
+    input("Ready for the next day?: ")
