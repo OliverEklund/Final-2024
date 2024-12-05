@@ -2,6 +2,7 @@ print("You are young business entrepreneur looking to make some money, sadly you
 print("In this game you will make need to make money but also enough money to sustain yourself and your business.")
 print("You make choices each day (Represented in turns) that will determine the future of your business.")
 
+import random
 Player_Name = input("What is your name?: ")
 Company_Name = input("What is the name of your company?: ")
 Current_Money = 100
@@ -14,6 +15,12 @@ print("/")
 
 round_status = True
 while round_status == True:
+
+    def random_name():
+        first_names=('John','Andy','Joe')
+        last_names=('Johnson','Smith','Williams')
+        name_created=" ".join(random.choice(first_names)+" "+random.choice(last_names) for _ in range(3))
+    
     Day = Day + 1
     1q
     print(f" It is now day {Day}. You have {Current_Money} dollars")
@@ -32,7 +39,14 @@ while round_status == True:
             print("i cant understand that")
     
     if action == "1":
-        print("you chose 1")
+        random_name()
+
+        print("you chose [1] Hire a worker. You go to labour.com to find someone to employ so both of you can make money.")
+        print("/")
+        print("These are the workers available today. Pick which one of these you whould like to employ")
+        print(f"{name_created}")
+
+
     if action == "2":
         print("you chose 2")
     if action == "3":
