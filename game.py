@@ -13,7 +13,7 @@ Upkeep = 0
 #WORKERS:
 worker_1_name = "John Deadbeat"
 worker_1_pay = 15
-worker_1_upkeep = 1
+worker_1_upkeep = 5
 worker_1_cost = 20
 worker_1_employed = False
 
@@ -26,7 +26,7 @@ worker_2_employed = False
 worker_3_name = "Arg Katt"
 worker_3_pay = 30
 worker_3_upkeep = 10
-worker_3_cost = 15
+worker_3_cost = 35
 worker_3_employed = False
 
 worker_4_name = "Allosaur the Cheat"
@@ -34,6 +34,19 @@ worker_4_pay = 2
 worker_4_upkeep = 0.7 #30% less upkeep
 worker_4_cost = 120
 worker_4_employed = False
+
+#Facilities
+Facility_1_Name = "Real Burgers, Burger Place"
+Facility_1_pay = 300
+Facility_1_upkeep = 60
+Facility_1_cost = 300
+Facility_1_bought = False
+
+Facility_2_Name = "Vik's Legally Distinct Vehicles"
+Facility_2_pay = 500
+Facility_2_upkeep = 100
+Facility_2_cost = 700
+Facility_2_bought = False
 
 input("Are you ready to start? Press enter to continue: ")
 print("/")
@@ -106,12 +119,45 @@ while round_status == True:
             Current_Money = Current_Money - worker_4_cost
 
     if action == "2":
-        print("you chose 2")
+
+        print("you chose [2] Buy a Facility. You go to Cheap_Franchise.com too look for one to buy.")
+        print("/")
+        print("These are the facilities available today")
+        print("/")
+
+        if Facility_1_bought == False:
+            print(f"[1] {Facility_1_Name}/ Income:{Facility_1_pay}/ Upkeep:{Facility_1_upkeep}/ Cost:{Facility_1_cost}")
+        if Facility_2_bought == False:
+            print(f"[2] {Facility_2_Name}/ Income:{Facility_2_pay}/ Upkeep:{Facility_2_upkeep}/ Cost:{Facility_2_cost}")
+        
+        Franchise_choice = input("")
+        if Franchise_choice == "1" and Facility_1_bought == False:
+            print(f"You have bought {Facility_1_Name}")
+            Facility_1_bought = True
+            Company_pay = Company_pay + Facility_1_pay
+            Upkeep = Upkeep + Facility_1_upkeep
+            Current_Money = Current_Money - Facility_1_cost
+        
+        if Franchise_choice == "2" and Facility_2_bought == False:
+            print(f"You have bought {Facility_1_Name}")
+            Facility_2_bought = True
+            Company_pay = Company_pay + Facility_2_pay
+            Upkeep = Upkeep + Facility_2_upkeep
+            Current_Money = Current_Money - Facility_2_cost
+
+
     if action == "3":
-        print("you chose 3")
+
+        print("you chose [3] Manage Finances.")
+
     if action == "4":
         print("you chose 4")
 
 
     Current_Money = Current_Money + (Company_pay - Upkeep)
+    if Current_Money <0:
+        print("You are bankrupt and you now live in a homeless shelter")
+        break
     input("Ready for the next day?: ")
+
+print("the end")
