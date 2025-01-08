@@ -76,7 +76,7 @@ while round_status == True:
 
         print("you chose [1] Hire a worker. You go to labour.com to find someone to employ so both of you can make money.")
         print("/")
-        print("These are the workers available today. Pick which one of these you whould like to employ")
+        print("These are the workers available fow now. Pick which one of these you whould like to employ")
         print("/")
         
         if worker_1_employed == False:
@@ -122,7 +122,7 @@ while round_status == True:
 
         print("you chose [2] Buy a Facility. You go to Cheap_Franchise.com too look for one to buy.")
         print("/")
-        print("These are the facilities available today")
+        print("These are the facilities available at the moment")
         print("/")
 
         if Facility_1_bought == False:
@@ -149,6 +149,7 @@ while round_status == True:
     if action == "3":
 
         print("you chose [3] Manage Finances.")
+        print("")
 
     if action == "4":
         print("you chose 4")
