@@ -11,28 +11,16 @@ Company_pay = 0
 Upkeep = 0
 
 #WORKERS:
-worker_1_name = "John Deadbeat"
-worker_1_pay = 15
-worker_1_upkeep = 5
-worker_1_cost = 20
+worker_1 = {'name':"John Deadbeat",'pay':20, 'upkeep':5, 'cost':25} 
 worker_1_employed = False
 
-worker_2_name = "Stig godemann"
-worker_2_pay = 1.2 #20% more money
-worker_2_upkeep = 30
-worker_2_cost = 100
+worker_2 = {'name':"Stig godemann", 'pay':100, 'upkeep':30, 'cost':100}
 worker_2_employed = False
 
-worker_3_name = "Arg Katt"
-worker_3_pay = 30
-worker_3_upkeep = 10
-worker_3_cost = 35
+worker_3 = {'name':"Arg Katt", 'pay':35, 'upkeep':10, 'cost':40}
 worker_3_employed = False
 
-worker_4_name = "Allosaur the Cheat"
-worker_4_pay = 2
-worker_4_upkeep = 0.7 #30% less upkeep
-worker_4_cost = 120
+worker_4 = {'name':"Allosaur the Cheat", 'pay':500, 'upkeep':100, 'cost':1000}
 worker_4_employed = False
 
 #Facilities
@@ -58,7 +46,7 @@ while round_status == True:
     Day = Day + 1
     print("/")
     print(f" It is now day {Day}. You have {Current_Money} dollars")
-    print(f"Your company, {Company_Name} is making {Company_pay} dollars per day. Your daily upkeep is {worker_1_upkeep}")
+    print(f"Your company, {Company_Name} is making {Company_pay} dollars per day. Your daily upkeep is {Upkeep}")
     print("/")
 
     choice = True
@@ -79,44 +67,44 @@ while round_status == True:
         print("These are the workers available fow now. Pick which one of these you whould like to employ")
         print("/")
         
-        if worker_1_employed == False:
-            print(f"[1] {worker_1_name}/ Income:{worker_1_pay}/ Salary:{worker_1_upkeep}/ Cost:{worker_1_cost}")
+        if worker_1_employed== False:
+            print(f"[1] {worker_1}")
         if worker_2_employed == False:
-            print(f"[2] {worker_2_name}/ Income:20% more total money/ Salary:{worker_2_upkeep}/ Cost:{worker_2_cost}")
+            print(f"[2] {worker_2}")
         if worker_3_employed == False:
-            print(f"[3] {worker_3_name}/ Income:{worker_3_pay}/ Salary:{worker_3_upkeep}/ Cost:{worker_3_cost}")
+            print(f"[3] {worker_3}")
         if worker_4_employed == False:
-            print(f"[4] {worker_4_name}/ Income:{worker_4_pay}/ Salary:30% less upkeep/ Cost:{worker_4_cost}")
+            print(f"[4] {worker_4}")
         print("/")
 
         employee_choice = input("")
         if employee_choice == "1" and worker_1_employed == False:
-            print(f"You have hired {worker_1_name}")
+            print(f"You have hired {worker_1.get('name')}")
             worker_1_employed = True
-            Company_pay = Company_pay + worker_1_pay
-            Upkeep = Upkeep + worker_1_upkeep
-            Current_Money = Current_Money - worker_1_cost
+            Company_pay = Company_pay + worker_1.get('pay')
+            Upkeep = Upkeep + worker_1.get('upkeep')
+            Current_Money = Current_Money - worker_1.get('cost')
 
         if employee_choice == "2" and worker_2_employed == False:
-            print(f"You have hired {worker_2_name}")
+            print(f"You have hired {worker_2.get('name')}")
             worker_2_employed = True
-            Company_pay = Company_pay * worker_2_pay
-            Upkeep = Upkeep + worker_2_upkeep
-            Current_Money = Current_Money - worker_2_cost
+            Company_pay = Company_pay + worker_2.get('pay')
+            Upkeep = Upkeep + worker_2.get('upkeep')
+            Current_Money = Current_Money - worker_2.get('cost')
 
         if employee_choice == "3" and worker_3_employed == False:
-            print(f"You have hired {worker_3_name}")
+            print(f"You have hired {worker_3.get('name')}")
             worker_3_employed = True
-            Company_pay = Company_pay + worker_3_pay
-            Upkeep = Upkeep + worker_3_upkeep
-            Current_Money = Current_Money - worker_3_cost
+            Company_pay = Company_pay + worker_3.get('pay')
+            Upkeep = Upkeep + worker_3.get('upkeep')
+            Current_Money = Current_Money - worker_3.get('cost')
 
         if employee_choice == "4" and worker_4_employed == False:
-            print(f"You have hired {worker_4_name}")
+            print(f"You have hired {worker_4.get(name)}")
             worker_4_employed = True
-            Company_pay = Company_pay + worker_4_pay
-            Upkeep = Upkeep * worker_4_upkeep
-            Current_Money = Current_Money - worker_4_cost
+            Company_pay = Company_pay + worker_4.get('pay')
+            Upkeep = Upkeep * worker_4.get('upkeep')
+            Current_Money = Current_Money - worker_4.get('cost')
 
     if action == "2":
 
