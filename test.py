@@ -1,11 +1,16 @@
-amount = 13
-ålder = {'Julia' : 100, 'Anton' : 12, 'Ellen' : 13}
-print(ålder)
-run = dict(Alexsander = 201, Bergman = 204, Ek = 291)
-print(run)
-ålder.get('Julia')
-print(ålder.get('Julia'))
 
-amount = amount + ålder.get('Julia')
-print(f"{amount}")
 
+turn = 0
+input("Ready to play?: ")
+
+while True:
+    print(f"Turn: {turn}")
+
+    board = [['1', '2', '3'],
+             ['4', '5', '6'],
+             ['7', '8', '9']]
+
+    print(*board,sep='\n')
+
+    turn = turn + 1
+    input("next turn?: ")

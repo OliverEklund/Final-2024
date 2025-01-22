@@ -9,6 +9,7 @@ Current_Money = 100
 Day = 0
 Company_pay = 0
 Upkeep = 0
+inventory = []
 
 #WORKERS:
 worker_1 = {'name':"John Deadbeat",'pay':20, 'upkeep':5, 'cost':25} 
@@ -53,10 +54,10 @@ while round_status == True:
     choice = True
     while choice == True:
         print("What will you do?")
-        print("[1] Hire a worker / [2] Buy a facility / [3] Upgrades / [4] Do Nothing")
+        print("[1] Hire a worker / [2] Buy a facility / [3] Upgrades / [4] Do Nothing / [5] Inventory")
         action = input("")
 
-        if action == "1" or "2" or "3" or "4":
+        if action == "1" or "2" or "3" or "4" or "5":
             break
         else:
             print("i cant understand that")
@@ -85,6 +86,7 @@ while round_status == True:
             Company_pay = Company_pay + worker_1.get('pay')
             Upkeep = Upkeep + worker_1.get('upkeep')
             Current_Money = Current_Money - worker_1.get('cost')
+            inventory.append(worker_1)
 
         if employee_choice == "2" and worker_2_employed == False:
             print(f"You have hired {worker_2.get('name')}")
@@ -92,6 +94,7 @@ while round_status == True:
             Company_pay = Company_pay + worker_2.get('pay')
             Upkeep = Upkeep + worker_2.get('upkeep')
             Current_Money = Current_Money - worker_2.get('cost')
+            inventory.append(worker_2)
 
         if employee_choice == "3" and worker_3_employed == False:
             print(f"You have hired {worker_3.get('name')}")
@@ -99,6 +102,7 @@ while round_status == True:
             Company_pay = Company_pay + worker_3.get('pay')
             Upkeep = Upkeep + worker_3.get('upkeep')
             Current_Money = Current_Money - worker_3.get('cost')
+            inventory.append(worker_3)
 
         if employee_choice == "4" and worker_4_employed == False:
             print(f"You have hired {worker_4.get('name')}")
@@ -106,6 +110,7 @@ while round_status == True:
             Company_pay = Company_pay + worker_4.get('pay')
             Upkeep = Upkeep * worker_4.get('upkeep')
             Current_Money = Current_Money - worker_4.get('cost')
+            inventory.append(worker_4)
 
     if action == "2":
 
@@ -126,6 +131,7 @@ while round_status == True:
             Company_pay = Company_pay + facility_1.get('pay')
             Upkeep = Upkeep + facility_1.get('upkeep')
             Current_Money = Current_Money - facility_1.get('cost')
+            inventory.append(facility_1)
         
         if Franchise_choice == "2" and Facility_2_bought == False:
             print(f"You have bought {facility_2.get('name')}")
@@ -133,6 +139,7 @@ while round_status == True:
             Company_pay = Company_pay + facility_2.get('pay')
             Upkeep = Upkeep + facility_2.get('upkeep')
             Current_Money = Current_Money - facility_2.get('cost')
+            inventory.append(facility_2)
 
 
     if action == "3":
@@ -154,15 +161,22 @@ while round_status == True:
             upgrade_1_bought = True
             Upkeep = Upkeep + upgrade_1.get('change')
             Current_Money = Current_Money - upgrade_1.get('cost')
+            inventory.append(upgrade_1)
+            
         
         if upgrade_choice == "2" and upgrade_2_bought == False:
             print(f"You have bought {upgrade_2.get('name')}")
             upgrade_2_bought = True
             Company_pay = Company_pay + upgrade_2.get('pay')
             Current_Money = Current_Money - upgrade_2.get('cost')
+            inventory.append(upgrade_2)
 
     if action == "4":
-        print("you chose 4")
+        print("you chose 4, to do nothing")
+    
+    if action =="5":
+        print("you chose 5, check inventory.")
+        print(inventory)
 
 
     Current_Money = Current_Money + (Company_pay - Upkeep)
